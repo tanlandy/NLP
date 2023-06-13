@@ -45,6 +45,8 @@ DONE[Andrej Karpathy微软Build大会精彩演讲： GPT状态和原理 - 解密
 
 [Susan Zhang: Trails of developing OPT-175B](https://www.youtube.com/live/p9IxoSkvZ-M?feature=share)
 
+[手把手用RLHF训练LLaMA](https://huggingface.co/blog/zh/stackllama)
+
 ## LoRA
 
 ## AIGC
