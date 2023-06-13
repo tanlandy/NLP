@@ -4,6 +4,9 @@ All about NLP
 
 # Roadmap
 
+## Suggetions
+[导师让我搞gpt方向，我该怎么去学？ - Uranus的回答 - 知乎](https://www.zhihu.com/question/604134581/answer/3063230236)
+
 ## GPT和大模型RLHF训练
 [MuLi-Transformer论文逐段精读](https://youtu.be/nzqlFIcCSWQ)
 
@@ -27,6 +30,18 @@ DONE[Andrej Karpathy微软Build大会精彩演讲： GPT状态和原理 - 解密
 
 
 ## AIGC
+[Colossal-AI](https://www.hpc-ai.tech/blog/diffusion-pretraining-and-hardware-fine-tuning-can-be-almost-7x-cheaper)
+
+
+### GAN
+[GAN论文精读](https://youtu.be/g_0HtlrLiDo)
+
+### DALL-E
+[DALL-E论文精读](https://youtu.be/hO57mntSMl0)
+
+
+### Diffusion
+
 
 ## Prompt
 
