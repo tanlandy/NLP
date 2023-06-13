@@ -15,11 +15,11 @@ DONE[Andrej Karpathy微软Build大会精彩演讲： GPT状态和原理 - 解密
 ## DeepSpeed
 [DeepSpeed官网](https://www.deepspeed.ai/)
 
+[DeepSpeed开手项目](https://www.deepspeed.ai/tutorials/azure/)
+
 [DeepSpeed Chat中文](https://github.com/microsoft/DeepSpeed/blob/master/blogs/deepspeed-chat/chinese/README.md)
 
 [DeepSpeed Github](https://github.com/microsoft/DeepSpeedExamples/tree/master/applications/DeepSpeed-Chat#-quick-start-)
-
-
 
 ## LLaMA
 [LLaMA official website](https://ai.facebook.com/blog/large-language-model-llama-meta-ai/)
