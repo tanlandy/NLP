@@ -2,3 +2,4 @@ SGD:
 Residual: 
 - Definition
 - Usage
+
