@@ -9,6 +9,9 @@ All about NLP
 - 1.25X第二遍，做笔记，尽量全部看懂
 - 1.5X第三遍，完善笔记，全部弄懂
 
+[基于transformers的NLP入门](https://github.com/datawhalechina/learn-nlp-with-transformers)
+[深度学习论文精读GitHub](https://github.com/mli/paper-reading)
+
 # Roadmap
 
 ## Suggetions
