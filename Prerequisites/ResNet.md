@@ -1,2 +1,4 @@
 SGD: 
-Residual
+Residual: 
+- Definition
+- Usage
