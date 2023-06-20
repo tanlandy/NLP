@@ -28,3 +28,4 @@ Why layer norm?
 - layer norm：每个样本自己算均值和方差，同时不用存一个全局的
 
 看到30min
+s
