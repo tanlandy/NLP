@@ -1,2 +1,2 @@
 SGD: 
-Resi
+Residual
