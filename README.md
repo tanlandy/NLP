@@ -9,9 +9,19 @@ All about NLP
 
 [导师让我搞gpt方向，我该怎么去学？ - Uranus的回答 - 知乎](https://www.zhihu.com/question/604134581/answer/3063230236)
 
+
+## Neural Network
+[NN](https://youtu.be/BR9h47Jtqyw)
+[RNN](https://youtu.be/UNmqTiOnRfg)
+
+
+
 ## Transformer
 
 [Transformer论文精读](https://youtu.be/nzqlFIcCSWQ)
+[Huggingface案例](https://github.com/huggingface/transformers/tree/main/examples)
+[手把手有代码的教程](https://datawhalechina.github.io/learn-nlp-with-transformers/#/)
+[知乎详解](https://zhuanlan.zhihu.com/p/403433120)
 
 ## GPT和大模型RLHF训练
 
@@ -88,6 +98,7 @@ DONE[Andrej Karpathy微软Build大会精彩演讲： GPT状态和原理 - 解密
 10. 语言模型自监督有哪几种方法
 11. prompt设计心得
 12. 推理阶段有哪些提升chatgpt性能的方法
+13. ChatGPT, GPT4的应用场景
 
 ## 神经网络基础
 1. 计算基本神经网络的参数量rnn, cnn, transformer
