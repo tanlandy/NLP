@@ -142,3 +142,8 @@ DONE[Andrej Karpathy微软Build大会精彩演讲： GPT状态和原理 - 解密
 10. softbank
 11. huggingface
 
+
+# Blogs
+
+[紫气东来专栏](https://www.zhihu.com/people/zi-qi-dong-lai-1/posts)
+
