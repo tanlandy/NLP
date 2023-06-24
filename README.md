@@ -14,6 +14,12 @@ All about NLP
 
 # Roadmap
 
+## Prerequisites
+线性代数
+[d2l](https://zh.d2l.ai/chapter_preliminaries/linear-algebra.html)
+[Interactive_Linear_Algebra](https://textbooks.math.gatech.edu/ila/index2.html)
+
+
 ## Suggetions
 
 [导师让我搞gpt方向，我该怎么去学？ - Uranus的回答 - 知乎](https://www.zhihu.com/question/604134581/answer/3063230236)
