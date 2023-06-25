@@ -1,6 +1,9 @@
 ## 线性代数
 [d2l](https://zh.d2l.ai/chapter_preliminaries/linear-algebra.html)
+
 [Interactive_Linear_Algebra](https://textbooks.math.gatech.edu/ila/index2.html)
+
+[学习笔记](Prerequisites/linear_algebra.ipynb)
 
 ## 微积分
 
@@ -45,6 +48,8 @@
 ### Adam算法
 
 ## Seq2Seq
+
+## 残差连接
 
 ## Attention
 [基于transformers的NLP入门](https://github.com/datawhalechina/learn-nlp-with-transformers)
