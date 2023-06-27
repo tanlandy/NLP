@@ -105,3 +105,4 @@ All about NLP
 # Blogs
 
 [紫气东来专栏](https://www.zhihu.com/people/zi-qi-dong-lai-1/posts)
+[一文读懂](https://www.mikecaptain.com/2023/01/22/captain-aigc-1-transformer/#21%E6%84%9F%E7%9F%A5%E5%99%A8perceptron%E8%A7%A3%E5%86%B3%E4%BA%8C%E5%85%83%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C)
