@@ -116,6 +116,11 @@ DONE[Andrej Karpathy微软Build大会精彩演讲： GPT状态和原理 - 解密
 
 ## Prompt
 
+## Langchain
+
+[PDF定制](https://www.bilibili.com/video/BV1xX4y1B7Vt/?share_source=copy_web&vd_source=1aea27c12a97d57f180ca22afea77cce)
+
+
 ## OpenAI接口整活
 
 [Chameleon](https://chameleon-llm.github.io/)
