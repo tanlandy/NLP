@@ -1,4 +1,5 @@
 ## 线性代数
+
 [d2l](https://zh.d2l.ai/chapter_preliminaries/linear-algebra.html)
 
 [Interactive_Linear_Algebra](https://textbooks.math.gatech.edu/ila/index2.html)
@@ -7,13 +8,14 @@
 
 ## 微积分
 
-
 ## 概率论
 
 ## 神经网络
+
 ### Softmax
 
 ### MLP
+
 #### 欠拟合，过拟合
 
 #### Dropout
@@ -23,21 +25,16 @@
 ## 深度学习计算
 
 ## NN
-[NN](https://youtu.be/BR9h47Jtqyw)
 
+[NN](https://youtu.be/BR9h47Jtqyw)
 
 ### CNN
 
-
 ### RNN
+
 [RNN](https://youtu.be/UNmqTiOnRfg)
 
-
 ## LSTM
-
-
-
-
 
 ## 优化算法
 
@@ -52,6 +49,7 @@
 ## 残差连接
 
 ## Attention
+
 [基于transformers的NLP入门](https://github.com/datawhalechina/learn-nlp-with-transformers)
 
 ## Transformer
@@ -60,6 +58,7 @@
 [Huggingface案例](https://github.com/huggingface/transformers/tree/main/examples)
 [手把手有代码的教程](https://datawhalechina.github.io/learn-nlp-with-transformers/#/)
 [知乎详解](https://zhuanlan.zhihu.com/p/403433120)
+[DASOU讲AI](https://www.bilibili.com/video/BV1Di4y1c7Zm?p=3&vd_source=81600aa7e4afc02bfa486707d333ea5b)
 
 ## GPT和大模型RLHF训练
 
@@ -119,6 +118,11 @@ DONE[Andrej Karpathy微软Build大会精彩演讲： GPT状态和原理 - 解密
 ## Langchain
 
 [PDF定制](https://www.bilibili.com/video/BV1xX4y1B7Vt/?share_source=copy_web&vd_source=1aea27c12a97d57f180ca22afea77cce)
+
+
+## Falcon
+
+[Falcon使用](https://huggingface.co/blog/zh/falcon)
 
 
 ## OpenAI接口整活
