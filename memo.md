@@ -1,0 +1,3 @@
+acclerate 整合了大模型分布式训练所需的所有的trick
+safetensors 解决模型序列化的安全性问题
+gradio 提供快速部署demo的方案
