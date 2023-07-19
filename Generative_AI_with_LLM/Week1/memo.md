@@ -75,7 +75,7 @@ LLM types:
 Additional GPU RAM needed when training: ~20 times extra bytes per parameter
 80G RAM needed @ 32-bit full precision
 
-Quantization: 
+Quantization:
 
 - FP16: 16-bit half precision: 2 bytes per parameter
 - BFLOAT16: 16-bit brain floating point: 2 bytes per parameter
@@ -95,8 +95,6 @@ Quantization:
 6. RNNs vs transformers:
    - RNNs: sequential, struggle with compute and memory
    - Transformers: parallelizable, attention mechanism helps to capture long-range dependencies
-
-
 
 ## Reading lists
 
