@@ -28,6 +28,7 @@
    - chinchilla
      - very large model may be over-parameterized and under-trained
      - Compute optimal training datasize is ~20x number of parameters
+     - 70B parameters to 1.4T optimal tokens
 
 LLM types:
 
