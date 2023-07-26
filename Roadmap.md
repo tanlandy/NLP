@@ -94,6 +94,8 @@ DONE[Andrej Karpathy微软Build大会精彩演讲： GPT状态和原理 - 解密
 
 [手把手用RLHF训练LLaMA](https://huggingface.co/blog/zh/stackllama)
 
+[LLaMA2](https://huggingface.co/blog/llama2#fine-tuning-with-peft)
+
 ## LoRA
 
 [Hugging Face](https://huggingface.co/docs/diffusers/training/lora)
