@@ -22,6 +22,13 @@
 
 #### 前向传播，反向传播，计算图
 
+[Backpropagation](https://youtu.be/tIeHLnjs5U8)
+
+
+## PyTorch
+
+[60minBlitz](https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html)
+
 ## 深度学习计算
 
 ## NN
