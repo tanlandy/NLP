@@ -24,7 +24,6 @@
 
 [Backpropagation](https://youtu.be/tIeHLnjs5U8)
 
-
 ## PyTorch
 
 [60minBlitz](https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html)
@@ -128,11 +127,9 @@ DONE[Andrej Karpathy微软Build大会精彩演讲： GPT状态和原理 - 解密
 
 [PDF定制](https://www.bilibili.com/video/BV1xX4y1B7Vt/?share_source=copy_web&vd_source=1aea27c12a97d57f180ca22afea77cce)
 
-
 ## Falcon
 
 [Falcon使用](https://huggingface.co/blog/zh/falcon)
-
 
 ## OpenAI接口整活
 
