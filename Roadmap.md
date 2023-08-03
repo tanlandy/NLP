@@ -138,3 +138,7 @@ DONE[Andrej Karpathy微软Build大会精彩演讲： GPT状态和原理 - 解密
 [Grammatical Error](https://arxiv.org/abs/2303.13648)
 
 [ChatGPT NLG Evaluator](https://arxiv.org/abs/2303.04048)
+
+## DL Course
+
+[Evaluating and Debugging Generative AI](https://learn.deeplearning.ai/evaluating-debugging-generative-ai/lesson/1/introduction)
