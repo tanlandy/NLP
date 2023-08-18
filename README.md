@@ -3,7 +3,6 @@
 [fast.ai.course](https://course.fast.ai/)
 -> 写完每个章节后面的问题
 
-
 # PyTorch
 
 [新手如何入门pytorch](https://www.zhihu.com/question/55720139/answer/147148105)
@@ -28,8 +27,8 @@ All about NLP
 [导师让我搞gpt方向，我该怎么去学？ - Uranus的回答 - 知乎](https://www.zhihu.com/question/604134581/answer/3063230236)
 
 ## NLP综述
-[知识笔记](https://zhuanlan.zhihu.com/p/597586623)
 
+[知识笔记](https://zhuanlan.zhihu.com/p/597586623)
 
 ## Colab
 
@@ -63,7 +62,7 @@ All about NLP
 6. Langchain及原理
 7. autogpt原理
 8. 如何突破transformer token限制
-9.  大语言模型有哪几种架构，哪几种最流行，为什么
+9. 大语言模型有哪几种架构，哪几种最流行，为什么
 10. 语言模型自监督有哪几种方法
 11. prompt设计心得
 12. 推理阶段有哪些提升chatgpt性能的方法

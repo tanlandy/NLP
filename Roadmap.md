@@ -1,3 +1,7 @@
+# Roadmap
+
+[Study_plan](https://github.com/patrickloeber/ml-study-plan)
+
 ## 线性代数
 
 [d2l](https://zh.d2l.ai/chapter_preliminaries/linear-algebra.html)
@@ -5,6 +9,10 @@
 [Interactive_Linear_Algebra](https://textbooks.math.gatech.edu/ila/index2.html)
 
 [学习笔记](Prerequisites/linear_algebra.ipynb)
+
+## 机器学习
+
+[Algorithms_from_scratch](https://youtu.be/ngLyX54e1LU)
 
 ## 微积分
 
