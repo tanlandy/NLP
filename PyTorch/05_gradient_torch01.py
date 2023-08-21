@@ -1,8 +1,8 @@
 """
-- Prediction: PyTorch Model
+- Prediction: Manually
 - Gradients Computation: Autograd
-- Loss Computation: PyTorch Loss
-- Parameter Updates: PyTorch Optimizer
+- Loss Computation: Manually
+- Parameter Updates: Manually
 """
 
 import torch
