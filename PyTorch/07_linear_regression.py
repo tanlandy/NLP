@@ -1,5 +1,5 @@
 """
-Typicall training pipeline in PyTorch: 
+Typical training pipeline in PyTorch:
 
 1 ) Design model (input, output size, forward pass)
 2 ) Construct loss and optimizer
@@ -27,7 +27,7 @@ n_samples, n_features = X.shape
 
 input_size = n_features
 output_size = 1
-model = nn.Lienar(input_size, output_size)
+model = nn.Linear(input_size, output_size)
 
 # 2 ) Construct loss and optimizer
 learning_rate = 0.01
@@ -38,7 +38,25 @@ optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
 num_epochs = 100
 for epoch in range(num_epochs):
     # forward pass and loss
-
+    y_predicted = model(X)
+    loss = criterion(y_predicted, y)
     # backward pass
+    loss.backward()
 
     # update weights
+    optimizer.step()
+    optimizer.zero_grad()
+
+    if (epoch+1) % 10 == 0:
+        print(f'epoch: {epoch+1}, loss = {loss.item():.4f}')
+
+# plot
+predicted = model(X).detach().numpy()
+plt.plot(X_numpy, y_numpy, 'ro')  # ro: red dor
+plt.plot(X_numpy, predicted, 'b')  # b: blue
+plt.show()
+
+
+
+
+
