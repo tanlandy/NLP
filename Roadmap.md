@@ -16,7 +16,7 @@
 
 ## 微积分
 
-[百度深度学习一站学习]（https://paddlepedia.readthedocs.io/en/latest/tutorials/deep_learning/index.html
+[百度深度学习一站学习](https://paddlepedia.readthedocs.io/en/latest/tutorials/deep_learning/index.html)
 
 ## 概率论
 
