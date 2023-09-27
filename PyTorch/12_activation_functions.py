@@ -36,7 +36,7 @@ class NeuralNet(nn.Module):
 # option 2 (use activation functions directly in forward pass)
 class NeuralNet2(nn.Module):
     def __init__(self, input_size, hidden_size):
-        super(NeuralNet2, self).__init__()
+         super(NeuralNet2, self).__init__()
         self.linear1 = nn.Linear(input_size, hidden_size)
         self.linear2 = nn.Linear(hidden_size, 1)
 
