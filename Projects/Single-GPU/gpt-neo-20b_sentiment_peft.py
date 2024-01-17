@@ -41,7 +41,7 @@ from trl.core import LengthSampler
 
 ########################################################################
 # NOTE for to train with a 8-bit model a more recent version of
-# transformers is required, full dependecies for this example:
+# transformers is required, full dependencies for this example:
 # pip install  bitsandbytes datasets accelerate loralib
 # pip install  git+https://github.com/huggingface/transformers.git@main
 # pip install peft
