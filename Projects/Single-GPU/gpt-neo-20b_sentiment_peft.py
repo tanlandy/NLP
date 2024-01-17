@@ -225,7 +225,6 @@ output_min_length = 4
 output_max_length = 16
 output_length_sampler = LengthSampler(output_min_length, output_max_length)
 
-
 for epoch, batch in tqdm(enumerate(ppo_trainer.dataloader)):
     query_tensors = batch["input_ids"]
 
@@ -251,6 +250,5 @@ for epoch, batch in tqdm(enumerate(ppo_trainer.dataloader)):
 
     stats = ppo_trainer.step(query_tensors, response_tensors, rewards)
     ppo_trainer.log_stats(stats, batch, rewards)
-
 
 model.push_to_hub(f"{script_args.model_name}-ppo-sentiment")
