@@ -797,3 +797,14 @@ Retrieval currently optimizes for quality by adding all relevant content to the 
 3. 其它随意发挥
 
 看到117min，开始答疑
+
+# 自己补充内容
+
+## 选择embedding模型
+
+[如何选取RAG中的embedding模型](https://www.bilibili.com/video/BV1Hk4y1X7aG/?spm_id_from=333.788&vd_source=bda59ae5876994a99ff01e0e192da242)
+
+1. Sequence Length： 看是否需要长文本，如果需要长文本，就选用长文本的模型，如果不需要长文本，就选用短文本的模型
+2. Embedding Dimenssions：看业务场景的语义是否特别丰富，并不是越大越好。如果比较精比较专，选择小的可能效果更好
+3. Model Size：取决于设备的GPU情况
+4. 做个demo，可视化看一下效果作为参考

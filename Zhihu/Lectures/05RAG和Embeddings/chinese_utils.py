@@ -25,6 +25,8 @@ def sent_tokenize(input_string):
     
 if "__main__" == __name__:
     # 测试关键词提取
-    print(to_keywords("小明硕士毕业于中国科学院计算所，后在日本京都大学深造"))
+    # print(to_keywords("小明硕士毕业于中国科学院计算所，后在日本京都大学深造"))
+    print(to_keywords("It was David who/that bought a walkman from a store yesterday. (强调主语 David)"))
     # 测试断句
-    print(sent_tokenize("这是，第一句。这是第二句吗？是的！啊"))
+    # print(sent_tokenize("这是，第一句。这是第二句吗？是的！啊"))
+    
