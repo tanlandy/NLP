@@ -65,7 +65,7 @@ def extract_text_from_pdf(filename, page_numbers=None, min_line_length=1):
     paragraphs = []
     buffer = ''
     full_text = ''
-    # 提取全部文本
+    # 提取全部文本 
     for i, page_layout in enumerate(extract_pages(filename)):
         # 如果指定了页码范围，跳过范围外的页
         if page_numbers is not None and i not in page_numbers:
@@ -697,7 +697,7 @@ print(response)
 
 ```python
 
-from openai import OpenAI # 需要1.2以上版本
+from openai import OpenAI # 需要1.2以上版本 
 import os
 # 加载环境变量
 from dotenv import load_dotenv, find_dotenv
@@ -716,7 +716,7 @@ assistant = client.beta.assistants.create(
   instructions="你是个问答机器人，你根据给定的知识回答用户问题。",
   model="gpt-4-1106-preview",
   tools=[{"type": "retrieval"}],
-  file_ids=[file.id]
+  file_ids=[file.id],
 )
 
 # 创建 Thread
