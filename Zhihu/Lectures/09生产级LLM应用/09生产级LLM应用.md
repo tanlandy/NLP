@@ -93,4 +93,61 @@ chain.invoke(input="AGIClass", config={"callbacks":[handler]})
 
 ```
 
+### 1.3 用Session记录一个用户的多轮对话
 
+```python
+
+import uuid
+from langchain_openai import ChatOpenAI
+from langchain.schema import (
+    AIMessage, #等价于OpenAI接口中的assistant role
+    HumanMessage, #等价于OpenAI接口中的user role
+    SystemMessage #等价于OpenAI接口中的system role
+)
+
+
+llm = ChatOpenAI()
+
+messages = [
+    SystemMessage(content="你是AGIClass的课程助理。"), 
+]
+
+handler = CallbackHandler(
+    user_id="wzr",
+    trace_name="test_chat",
+    session_id=str(uuid.uuid4())
+)  # 用于记录用户的多轮对话
+
+while True:
+    user_input=input("User: ")
+    if user_input.strip() == "":
+        break
+    messages.append(HumanMessage(content=user_input))
+    response = llm.invoke(messages,config={"callbacks":[handler]})
+    print("AI: "+response.content)
+    messages.append(response)
+
+```
+
+## 1.4 数据集与测试
+
+# 总结
+
+管理一个 LLM 应用的全生命周期，需要用到以下工具：
+
+1. 调试 Prompt 的 Playground
+2. 测试/验证系统的相关指标
+3. 数据集管理
+4. 各种指标监控与统计：访问量、响应时长、Token费等等
+
+根据自己的技术栈，选择：
+
+1. LangFuse：开源平台，支持 LangChain 和原生 OpenAI API
+2. LangSmith: LangChain 的原始管理平台
+3. Prompt Flow：开源平台，支持 Semantic Kernel
+
+# 作业
+
+选择一个工具平台，对自己之前开发的系统或模型做批量测试
+
+看到111min，老师继续答疑
