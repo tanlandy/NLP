@@ -683,4 +683,17 @@ print(response.json())
 
 用 LangChain 重构 ChatPDF 的作业
 
-看到94min，老师开始答疑
+## 答疑
+
+不建议混用SK和Langchain
+
+智能客服是LLM最典型的应用场景
+
+AutoGPT是Agent的一种实现
+
+Langchain提供了处理很大的文档的方式，见
+[langchain_summ](https://python.langchain.com/docs/use_cases/summarization)
+
+表格解析：用codeInterpreter，分析excel的方式来分析表
+
+Langchain是封装大模型的使用，尤其是Prompt Template，从而减少了代码量
