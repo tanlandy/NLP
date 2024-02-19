@@ -39,7 +39,7 @@
 
 ![langchain](langchain.png)
 
-官方文档地址：https://python.langchain.com/docs/get_started
+官方文档地址：<https://python.langchain.com/docs/get_started>
 
 Agent是未来的趋势
 
@@ -268,7 +268,7 @@ print(date)
 LangChain 的 PDFLoader 和 TextSplitter 实现都比较粗糙，实际生产中不建议使用。
 </div>
 
-### 2.3、内置的 RAG 实现 
+### 2.3、内置的 RAG 实现
 
 ```python
 
@@ -374,11 +374,11 @@ print(memory.load_memory_variables({}))
 ### 3.4、更多类型
 
 - ConversationSummaryMemory: 对上下文做摘要
-  - https://python.langchain.com/docs/modules/memory/types/summary
+  - <https://python.langchain.com/docs/modules/memory/types/summary>
 - ConversationSummaryBufferMemory: 保存 Token 数限制内的上下文，对更早的做摘要
-  - https://python.langchain.com/docs/modules/memory/types/summary_buffer
+  - <https://python.langchain.com/docs/modules/memory/types/summary_buffer>
 - VectorStoreRetrieverMemory: 将 Memory 存储在向量数据库中，根据用户输入检索回最相关的部分
-  - https://python.langchain.com/docs/modules/memory/types/vectorstore_retriever_memory
+  - <https://python.langchain.com/docs/modules/memory/types/vectorstore_retriever_memory>
 
 ### 3.5、小结
 
@@ -410,7 +410,7 @@ LCEL的一些亮点包括：
 
 8. **无缝LangServe部署集成**：任何使用 LCEL 创建的链都可以轻松地使用 LangServe 进行部署。
 
-原文：https://python.langchain.com/docs/expression_language/
+原文：<https://python.langchain.com/docs/expression_language/>
 
 举个例子
 
@@ -514,14 +514,14 @@ retrieval_chain.invoke("OpenAI的CEO是谁")
 
 ### 通过 LCEL，还可以实现
 
-1. 配置运行时变量：https://python.langchain.com/docs/expression_language/how_to/configure
-2. 故障回退：https://python.langchain.com/docs/expression_language/how_to/fallbacks
-3. 并行调用：https://python.langchain.com/docs/expression_language/how_to/map
-4. 逻辑分支：https://python.langchain.com/docs/expression_language/how_to/routing
-5. 调用自定义流式函数：https://python.langchain.com/docs/expression_language/how_to/generators
-6. 链接外部Memory：https://python.langchain.com/docs/expression_language/how_to/message_history
+1. 配置运行时变量：<https://python.langchain.com/docs/expression_language/how_to/configure>
+2. 故障回退：<https://python.langchain.com/docs/expression_language/how_to/fallbacks>
+3. 并行调用：<https://python.langchain.com/docs/expression_language/how_to/map>
+4. 逻辑分支：<https://python.langchain.com/docs/expression_language/how_to/routing>
+5. 调用自定义流式函数：<https://python.langchain.com/docs/expression_language/how_to/generators>
+6. 链接外部Memory：<https://python.langchain.com/docs/expression_language/how_to/message_history>
 
-更多例子：https://python.langchain.com/docs/expression_language/cookbook/
+更多例子：<https://python.langchain.com/docs/expression_language/cookbook/>
 
 ## 五、智能体架构：Agent
 
@@ -671,7 +671,6 @@ print(response.json())
 | 三方向量数据库适配           | 多 | 少 + 外部生态  |
 | 服务部署 | LangServe | 与 Azure 衔接更丝滑
 | 管理工具 | LangSmith/LangFuse | Prompt Flow
-
 
 ## 总结
 

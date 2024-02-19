@@ -13,6 +13,7 @@ RAG **不要** 参考下面这张图！！！
 ![rag-paper](rag-paper.png)
 
 这张图源自一个[研究工作](https://arxiv.org/pdf/2005.11401.pdf)
+
 - 此论文第一次提出 RAG 这个叫法
 - 在研究中，作者尝试将检索和生成做在一个模型体系中
 
@@ -132,7 +133,6 @@ def to_keywords(input_string):
 ```
 
 此处 to_keywords 为针对英文的实现，针对中文的实现请参考 [chiense](./chinese_utils.py)
-
 
 将文本灌入检索引擎
 
@@ -315,7 +315,6 @@ for res in search_results:
 
 `扩展阅读：https://www.sbert.net`
 
-
 ```python
 
 import numpy as np
@@ -380,8 +379,6 @@ for vec in doc_vecs:
 
 向量数据库，是专门为向量检索设计的中间件。
 这样不用每次都去用向量模型来产生向量，而是将向量存储在数据库中，直接检索。
-
-
 
 ```python
 
@@ -456,14 +453,14 @@ chroma_client = chromadb.HttpClient(host='localhost', port=8000)
 
 ![vectordb](vectordb.png)
 
-- FAISS: Meta 开源的向量检索引擎 https://github.com/facebookresearch/faiss
-- Pinecone: 商用向量数据库，只有云服务 https://www.pinecone.io/
-- Milvus: 开源向量数据库，同时有云服务 https://milvus.io/
-- Weaviate: 开源向量数据库，同时有云服务 https://weaviate.io/
-- Qdrant: 开源向量数据库，同时有云服务 https://qdrant.tech/
-- PGVector: Postgres 的开源向量检索引擎 https://github.com/pgvector/pgvector
-- RediSearch: Redis 的开源向量检索引擎 https://github.com/RediSearch/RediSearch
-- ElasticSearch 也支持向量检索 https://www.elastic.co/enterprise-search/vector-search
+- FAISS: Meta 开源的向量检索引擎 <https://github.com/facebookresearch/faiss>
+- Pinecone: 商用向量数据库，只有云服务 <https://www.pinecone.io/>
+- Milvus: 开源向量数据库，同时有云服务 <https://milvus.io/>
+- Weaviate: 开源向量数据库，同时有云服务 <https://weaviate.io/>
+- Qdrant: 开源向量数据库，同时有云服务 <https://qdrant.tech/>
+- PGVector: Postgres 的开源向量检索引擎 <https://github.com/pgvector/pgvector>
+- RediSearch: Redis 的开源向量检索引擎 <https://github.com/RediSearch/RediSearch>
+- ElasticSearch 也支持向量检索 <https://www.elastic.co/enterprise-search/vector-search>
 
 老师推荐：
 数据没有私有化的强需求，可以用非开源的Pinecone，非常省事
@@ -636,7 +633,6 @@ def split_text(paragraphs, chunk_size=300, overlap_size=100):
 
 此处 to_keywords 为针对英文的实现，针对中文的实现请参考 [chiense](./chinese_utils.py)
 
-
 ```python
 
 chunks = split_text(paragraphs, 300, 100)
@@ -773,7 +769,7 @@ Retrieval currently optimizes for quality by adding all relevant content to the 
   2. 文档切分
   3. 向量化
   4. 灌入向量数据库
-     
+
 - 在线步骤：
   1. 获得用户问题
   2. 用户问题向量化

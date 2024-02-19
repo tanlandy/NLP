@@ -19,14 +19,13 @@
 2. 简单讲解 **LangSmith**: LangChain 的官方平台，SaaS 服务，非开源，**目前需要排队注册**；使用的话首选
 3. 简单讲解 **Prompt Flow**：微软开发，开源 + Azure AI云服务，可集成 Semantic Kernel（但貌合神离）。
 
-
 ## 1、LangFuse
 
 开源，支持 LangChain 集成或原生 OpenAI API 集成
 
-官方网站：https://langfuse.com/
+官方网站：<https://langfuse.com/>
 
-项目地址：https://github.com/langfuse
+项目地址：<https://github.com/langfuse>
 
 1. 通过官方云服务使用：
    - 注册: cloud.langfuse.com
