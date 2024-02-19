@@ -146,4 +146,19 @@ batchsize：前期较小，为了更快伸展出模型参数，让他不用一�
 
 ![评论基准](<Screenshot 2024-02-18 at 7.52.48 PM.png>)
 
-看到101:24，开始讲代码
+
+代码：
+微调实践：https://colab.research.google.com/drive/1c3tRQZeOvdssOiAbWzKFTv31Rnw42-Bf?usp=sharing
+
+[微调代码](./ChatYuan微调代码.ipynb)
+
+
+构建字典代码：https://colab.research.google.com/drive/1shRwcfMQH4vzri_ou1Sx14OqMsgxHXFJ?usp=sharing
+
+[构建字典代码](./sentencepiece_tokenizer构建字典实践.ipynb)
+
+
+
+预训练代码：https://github.com/google-research/t5x
+
+强化学习代码：https://github.com/CarperAI/trlx/tree/main/examples
