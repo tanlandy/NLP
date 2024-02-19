@@ -18,7 +18,7 @@ raw_valid_dataset = raw_datasets["test"]
 
 def batch_iterator(batch_size=10000):
     for i in tqdm(range(0, len(raw_train_dataset), batch_size)):
-        yield raw_train_dataset[i: i + batch_size]["text"]
+        yield raw_train_dataset[i : i + batch_size]["text"]
 
 
 # 加载预训练的tokenizer（为了复用其定义的特殊token）
@@ -26,5 +26,6 @@ tokenizer = GPT2TokenizerFast.from_pretrained(MODEL_NAME)
 tokenizer.pad_token = tokenizer.eos_token
 
 gpt_tokenizer = tokenizer.train_new_from_iterator(
-    text_iterator=batch_iterator(), vocab_size=VOCAB_SIZE)
-gpt_tokenizer.save_pretrained("my-tokenizer-"+MODEL_NAME)
+    text_iterator=batch_iterator(), vocab_size=VOCAB_SIZE
+)
+gpt_tokenizer.save_pretrained("my-tokenizer-" + MODEL_NAME)
