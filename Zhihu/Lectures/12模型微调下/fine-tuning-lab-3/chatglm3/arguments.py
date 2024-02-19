@@ -1,6 +1,7 @@
 """
 文件中定义了模型定义和训练过程中的命令行参数
 """
+
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -12,7 +13,9 @@ class ModelArguments:
     """
 
     model_name_or_path: str = field(
-        metadata={"help": "Path to pretrained model or model identifier from huggingface.co/models"}
+        metadata={
+            "help": "Path to pretrained model or model identifier from huggingface.co/models"
+        }
     )
     checkpoint_path: Optional[str] = field(
         default=None, metadata={"help": "Path to pt2 or lora finetuned checkpoint dir"}
@@ -21,22 +24,34 @@ class ModelArguments:
         default=None, metadata={"help": "Path to p-tuning v2 checkpoints"}
     )
     config_name: Optional[str] = field(
-        default=None, metadata={"help": "Pretrained config name or path if not the same as model_name"}
+        default=None,
+        metadata={
+            "help": "Pretrained config name or path if not the same as model_name"
+        },
     )
     tokenizer_name: Optional[str] = field(
-        default=None, metadata={"help": "Pretrained tokenizer name or path if not the same as model_name"}
+        default=None,
+        metadata={
+            "help": "Pretrained tokenizer name or path if not the same as model_name"
+        },
     )
     cache_dir: Optional[str] = field(
         default=None,
-        metadata={"help": "Where to store the pretrained models downloaded from huggingface.co"},
+        metadata={
+            "help": "Where to store the pretrained models downloaded from huggingface.co"
+        },
     )
     use_fast_tokenizer: bool = field(
         default=True,
-        metadata={"help": "Whether to use one of the fast tokenizer (backed by the tokenizers library) or not."},
+        metadata={
+            "help": "Whether to use one of the fast tokenizer (backed by the tokenizers library) or not."
+        },
     )
     model_revision: str = field(
         default="main",
-        metadata={"help": "The specific model version to use (can be a branch name, tag name or commit id)."},
+        metadata={
+            "help": "The specific model version to use (can be a branch name, tag name or commit id)."
+        },
     )
     use_auth_token: bool = field(
         default=False,
@@ -56,15 +71,9 @@ class ModelArguments:
             )
         },
     )
-    quantization_bit: Optional[int] = field(
-        default=None
-    )
-    pre_seq_len: Optional[int] = field(
-        default=None
-    )
-    prefix_projection: bool = field(
-        default=False
-    )
+    quantization_bit: Optional[int] = field(default=None)
+    pre_seq_len: Optional[int] = field(default=None)
+    prefix_projection: bool = field(default=False)
 
 
 @dataclass
@@ -72,14 +81,18 @@ class DataTrainingArguments:
     """
     Arguments pertaining to what data we are going to input our model for training and eval.
     """
+
     train_file: Optional[str] = field(
-        default=None, metadata={"help": "The input training data file (a jsonlines or csv file)."}
+        default=None,
+        metadata={"help": "The input training data file (a jsonlines or csv file)."},
     )
     validation_file: Optional[str] = field(
-        default=None, metadata={"help": "The input validation data file (a jsonlines or csv file)."}
+        default=None,
+        metadata={"help": "The input validation data file (a jsonlines or csv file)."},
     )
     test_file: Optional[str] = field(
-        default=None, metadata={"help": "The input test data file (a jsonlines or csv file)."}
+        default=None,
+        metadata={"help": "The input test data file (a jsonlines or csv file)."},
     )
 
     max_seq_length: Optional[int] = field(
@@ -112,7 +125,8 @@ class DataTrainingArguments:
     )
 
     overwrite_cache: bool = field(
-        default=False, metadata={"help": "Overwrite the cached training and evaluation sets"}
+        default=False,
+        metadata={"help": "Overwrite the cached training and evaluation sets"},
     )
 
     preprocessing_num_workers: Optional[int] = field(
@@ -150,22 +164,15 @@ class DataTrainingArguments:
             )
         },
     )
-    
+
+
 @dataclass
 class PeftArguments:
-    lora_rank: int = field(
-        default=None,
-        metadata={"help": "LoRA rank number"}
-    )
-    lora_alpha: int = field(
-        default=32,
-        metadata={"help": "LoRA alpha weight"}
-    )
+    lora_rank: int = field(default=None, metadata={"help": "LoRA rank number"})
+    lora_alpha: int = field(default=32, metadata={"help": "LoRA alpha weight"})
     lora_dropout: float = field(
-        default=0.1,
-        metadata={"help": "LoRA dropout probability"}
+        default=0.1, metadata={"help": "LoRA dropout probability"}
     )
     lora_checkpoint: str = field(
-        default=None,
-        metadata={"help": "Path to LoRA checkpoints"}
+        default=None, metadata={"help": "Path to LoRA checkpoints"}
     )

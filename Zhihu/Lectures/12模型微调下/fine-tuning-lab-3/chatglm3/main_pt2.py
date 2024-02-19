@@ -54,7 +54,9 @@ def load_model(model_args):
         model_args.model_name_or_path, trust_remote_code=True
     )  # 加载模型原生的配置文件
     config.pre_seq_len = model_args.pre_seq_len  # 设置prefix长度，原来默认是0
-    config.prefix_projection = model_args.prefix_projection  # 设置向量之间是否要做投影（线性映射），默认是False
+    config.prefix_projection = (
+        model_args.prefix_projection
+    )  # 设置向量之间是否要做投影（线性映射），默认是False
     # 加载预训练的chatglm3-6b的tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
         model_args.model_name_or_path, trust_remote_code=True

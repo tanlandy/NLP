@@ -78,7 +78,9 @@ def format_conversation(item, tokenizer, conversation_key: str, tool_key: str):
             _update(text, loss)  # 拿结果来更新tokens和loss_masks序列
 
             # function call result
-            value = conv.get("observation", None)  # 如果有观察结果，就拼接成python的格式
+            value = conv.get(
+                "observation", None
+            )  # 如果有观察结果，就拼接成python的格式
             if not isinstance(value, str):
                 value = json.dumps(value, ensure_ascii=False)
             text = tokenizer.build_single_message("observation", "", value)

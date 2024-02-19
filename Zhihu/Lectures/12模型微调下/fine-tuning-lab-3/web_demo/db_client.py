@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+
 load_dotenv("api_keys.env")
 import os
 import re
@@ -6,6 +7,7 @@ import json
 import requests
 import weaviate
 from tqdm import tqdm
+
 
 def rrf(rankings, k=60):
     if not isinstance(rankings, list):
@@ -17,7 +19,7 @@ def rrf(rankings, k=60):
         for i, doc in enumerate(ranking):
             if not isinstance(doc, dict):
                 raise ValueError("Each item should be dict type.")
-            doc_id = doc.get('hotel_id', None)
+            doc_id = doc.get("hotel_id", None)
             if doc_id is None:
                 raise ValueError("Each item should have 'hotel_id' key.")
             if doc_id not in scores:
@@ -28,135 +30,120 @@ def rrf(rankings, k=60):
     return [item[1] for item in sorted_scores]
 
 
-class HotelDB():
+class HotelDB:
     def __init__(self, url="https://hotel-97as1dsc.weaviate.network"):
-        self.client = weaviate.Client(url=url,
-          additional_headers={"X-OpenAI-Api-Key":os.getenv("OPENAI_API_KEY")}
+        self.client = weaviate.Client(
+            url=url,
+            additional_headers={"X-OpenAI-Api-Key": os.getenv("OPENAI_API_KEY")},
         )
 
     def insert(self):
         self.client.schema.delete_class("Hotel")
         schema = {
-          "classes": [
-            {
-              "class": "Hotel",
-              "description": "hotel info",
-              "properties": [
+            "classes": [
                 {
-                  "dataType": ["number"], 
-                  "description": "id of hotel", 
-                  "name": "hotel_id" 
-                },
-                {
-                  "dataType": ["text"],
-                  "description": "name of hotel",
-                  "name": "_name", #分词过用于搜索的
-                  "indexSearchable": True,
-                  "tokenization": "whitespace",
-                  "moduleConfig": {
-                    "text2vec-openai": { "skip": True }
-                  },
-                },
-                {
-                  "dataType": ["text"],
-                  "description": "type of hotel",
-                  "name": "name",
-                  "indexSearchable": False,
-                  "moduleConfig": {
-                    "text2vec-openai": { "skip": True }
-                  },
-                },
-                {
-                  "dataType": ["text"],
-                  "description": "type of hotel",
-                  "name": "type",
-                  "indexSearchable": False,
-                  "moduleConfig": {
-                    "text2vec-openai": { "skip": True }
-                  },
-                },
-                {
-                  "dataType": ["text"],
-                  "description": "address of hotel",
-                  "name": "_address", #分词过用于搜索的
-                  "indexSearchable": True,
-                  "tokenization": "whitespace",
-                  "moduleConfig": {
-                    "text2vec-openai": { "skip": True }
-                  },
-                },
-                {
-                  "dataType": ["text"],
-                  "description": "type of hotel",
-                  "name": "address",
-                  "indexSearchable": False,
-                  "moduleConfig": {
-                    "text2vec-openai": { "skip": True }
-                  },
-                },
-                {
-                  "dataType": ["text"],
-                  "description": "nearby subway",
-                  "name": "subway",
-                  "indexSearchable": False,
-                  "moduleConfig": {
-                    "text2vec-openai": { "skip": True }
-                  },
-                },
-                {
-                  "dataType": ["text"],
-                  "description": "phone of hotel",
-                  "name": "phone",
-                  "indexSearchable": False,
-                  "moduleConfig": {
-                    "text2vec-openai": { "skip": True }
-                  },
-                },
-                { 
-                  "dataType": ["number"], 
-                  "description": "price of hotel",   
-                  "name": "price" 
-                },
-                { 
-                  "dataType": ["number"], 
-                  "description": "rating of hotel",
-                  "name": "rating" 
-                },
-                {
-                  "dataType": ["text"],
-                  "description": "facilities provided",
-                  "name": "facilities",
-                  "indexSearchable": True,
-                  "moduleConfig": {
-                    "text2vec-openai": { "skip": False }
-                  },
-                },
-              ],
-              "vectorizer": "text2vec-openai",
-              "moduleConfig": {
-                "text2vec-openai": {
-                  "vectorizeClassName": False,
-                  "model": "ada",
-                  "modelVersion": "002",
-                  "type": "text"
-                },
-              },
-            }
-          ]
+                    "class": "Hotel",
+                    "description": "hotel info",
+                    "properties": [
+                        {
+                            "dataType": ["number"],
+                            "description": "id of hotel",
+                            "name": "hotel_id",
+                        },
+                        {
+                            "dataType": ["text"],
+                            "description": "name of hotel",
+                            "name": "_name",  # 分词过用于搜索的
+                            "indexSearchable": True,
+                            "tokenization": "whitespace",
+                            "moduleConfig": {"text2vec-openai": {"skip": True}},
+                        },
+                        {
+                            "dataType": ["text"],
+                            "description": "type of hotel",
+                            "name": "name",
+                            "indexSearchable": False,
+                            "moduleConfig": {"text2vec-openai": {"skip": True}},
+                        },
+                        {
+                            "dataType": ["text"],
+                            "description": "type of hotel",
+                            "name": "type",
+                            "indexSearchable": False,
+                            "moduleConfig": {"text2vec-openai": {"skip": True}},
+                        },
+                        {
+                            "dataType": ["text"],
+                            "description": "address of hotel",
+                            "name": "_address",  # 分词过用于搜索的
+                            "indexSearchable": True,
+                            "tokenization": "whitespace",
+                            "moduleConfig": {"text2vec-openai": {"skip": True}},
+                        },
+                        {
+                            "dataType": ["text"],
+                            "description": "type of hotel",
+                            "name": "address",
+                            "indexSearchable": False,
+                            "moduleConfig": {"text2vec-openai": {"skip": True}},
+                        },
+                        {
+                            "dataType": ["text"],
+                            "description": "nearby subway",
+                            "name": "subway",
+                            "indexSearchable": False,
+                            "moduleConfig": {"text2vec-openai": {"skip": True}},
+                        },
+                        {
+                            "dataType": ["text"],
+                            "description": "phone of hotel",
+                            "name": "phone",
+                            "indexSearchable": False,
+                            "moduleConfig": {"text2vec-openai": {"skip": True}},
+                        },
+                        {
+                            "dataType": ["number"],
+                            "description": "price of hotel",
+                            "name": "price",
+                        },
+                        {
+                            "dataType": ["number"],
+                            "description": "rating of hotel",
+                            "name": "rating",
+                        },
+                        {
+                            "dataType": ["text"],
+                            "description": "facilities provided",
+                            "name": "facilities",
+                            "indexSearchable": True,
+                            "moduleConfig": {"text2vec-openai": {"skip": False}},
+                        },
+                    ],
+                    "vectorizer": "text2vec-openai",
+                    "moduleConfig": {
+                        "text2vec-openai": {
+                            "vectorizeClassName": False,
+                            "model": "ada",
+                            "modelVersion": "002",
+                            "type": "text",
+                        },
+                    },
+                }
+            ]
         }
 
         self.client.schema.create(schema)
 
-        url = 'https://raw.githubusercontent.com/agiclass/hotel-chatbot/main/data/hotel.json'
-        if not os.path.exists('hotel.json'):
+        url = "https://raw.githubusercontent.com/agiclass/hotel-chatbot/main/data/hotel.json"
+        if not os.path.exists("hotel.json"):
             print("Downloading file...")
             response = requests.get(url)
-            with open('hotel.json', 'wb') as file:
+            with open("hotel.json", "wb") as file:
                 file.write(response.content)
             print("Download complete!")
         else:
             print("File already exists.")
-        with open('hotel.json', 'r') as f:
+        with open("hotel.json", "r") as f:
             hotels = json.load(f)
 
         self.client.batch.configure(batch_size=4, dynamic=True)
@@ -165,21 +152,33 @@ class HotelDB():
             self.client.batch.add_data_object(
                 data_object=hotel,
                 class_name="Hotel",
-                uuid=weaviate.util.generate_uuid5(hotel, "Hotel")
+                uuid=weaviate.util.generate_uuid5(hotel, "Hotel"),
             )
 
         self.client.batch.flush()
 
     def search(self, dsl, name="Hotel", limit=1):
-        _limit = limit + 10 # 多搜10条，让取top `limit`条
+        _limit = limit + 10  # 多搜10条，让取top `limit`条
         candidates = []
-        output_fields = ["hotel_id","name","type","address","phone","subway","facilities","price","rating"]
+        output_fields = [
+            "hotel_id",
+            "name",
+            "type",
+            "address",
+            "phone",
+            "subway",
+            "facilities",
+            "price",
+            "rating",
+        ]
         # ===================== assemble filters ========================= #
-        filters = [{
-            "path": ["price"],
-            "operator": "GreaterThan",
-            "valueNumber": 0,
-        }]
+        filters = [
+            {
+                "path": ["price"],
+                "operator": "GreaterThan",
+                "valueNumber": 0,
+            }
+        ]
         keys = [
             "type",
             "price_range_lower",
@@ -277,25 +276,23 @@ class HotelDB():
                     candidates, key=lambda x: x[dsl["sort.slot"]], reverse=True
                 )
             else:
-                candidates = sorted(
-                    candidates, key=lambda x: x[dsl["sort.slot"]]
-                )
-        
+                candidates = sorted(candidates, key=lambda x: x[dsl["sort.slot"]])
+
         if "name" in dsl:
-          final = []
-          for r in candidates:
-              if all(char in r['name'] for char in dsl['name']):
-                  final.append(r)
-          candidates = final
-        
+            final = []
+            for r in candidates:
+                if all(char in r["name"] for char in dsl["name"]):
+                    final.append(r)
+            candidates = final
+
         if len(candidates) > limit:
             candidates = candidates[:limit]
-        
+
         return candidates
 
 
 if __name__ == "__main__":
     db = HotelDB()
     name = "汉庭"
-    result = db.search({'name':name}, limit=3)
-    print(json.dumps(result,ensure_ascii=False))
+    result = db.search({"name": name}, limit=3)
+    print(json.dumps(result, ensure_ascii=False))

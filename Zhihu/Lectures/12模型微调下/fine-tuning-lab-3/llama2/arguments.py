@@ -7,71 +7,73 @@ class ModelArguments:
     """
     Arguments pertaining to which model/config/tokenizer we are going to fine-tune from.
     """
+
     model_name_or_path: str = field(
-        metadata={"help": "Path to pretrained model or model identifier from huggingface.co/models"}
-    )
-        
-    cache_dir: Optional[str] = field(
-        default=None,
-        metadata={"help": "Where to store the pretrained models downloaded from huggingface.co"},
+        metadata={
+            "help": "Path to pretrained model or model identifier from huggingface.co/models"
+        }
     )
 
-    quantization_bit: Optional[int] = field(
-        default=None
+    cache_dir: Optional[str] = field(
+        default=None,
+        metadata={
+            "help": "Where to store the pretrained models downloaded from huggingface.co"
+        },
     )
-    
+
+    quantization_bit: Optional[int] = field(default=None)
+
 
 @dataclass
 class PeftArguments:
-    lora_rank: int = field(
-        default=None,
-        metadata={"help": "LoRA rank number"}
-    )
-    lora_alpha: int = field(
-        default=32,
-        metadata={"help": "LoRA alpha weight"}
-    )
+    lora_rank: int = field(default=None, metadata={"help": "LoRA rank number"})
+    lora_alpha: int = field(default=32, metadata={"help": "LoRA alpha weight"})
     lora_dropout: float = field(
-        default=0.1,
-        metadata={"help": "LoRA dropout probability"}
+        default=0.1, metadata={"help": "LoRA dropout probability"}
     )
     lora_checkpoint: str = field(
-        default=None,
-        metadata={"help": "Path to LoRA checkpoints"}
+        default=None, metadata={"help": "Path to LoRA checkpoints"}
     )
-    
+
     pre_seq_len: Optional[int] = field(
-        default=None,
-        metadata={"help": "Prefix encoder length for P-Tuning V2"}
+        default=None, metadata={"help": "Prefix encoder length for P-Tuning V2"}
     )
     prefix_projection: bool = field(
         default=False,
-        metadata={"help": "Whether add projection layers for prefix encoder"}
+        metadata={"help": "Whether add projection layers for prefix encoder"},
     )
     ptuning_checkpoint: str = field(
-        default=None, 
-        metadata={"help": "Path to P-Tuning V2 checkpoints"}
+        default=None, metadata={"help": "Path to P-Tuning V2 checkpoints"}
     )
+
 
 @dataclass
 class DataTrainingArguments:
     """
     Arguments pertaining to what data we are going to input our model for training and eval.
     """
+
     prompt_column: Optional[str] = field(
         default=None,
-        metadata={"help": "The name of the column in the datasets containing the full texts (for summarization)."},
+        metadata={
+            "help": "The name of the column in the datasets containing the full texts (for summarization)."
+        },
     )
     response_column: Optional[str] = field(
         default=None,
-        metadata={"help": "The name of the column in the datasets containing the summaries (for summarization)."},
+        metadata={
+            "help": "The name of the column in the datasets containing the summaries (for summarization)."
+        },
     )
     history_column: Optional[str] = field(
         default=None,
-        metadata={"help": "The name of the column in the datasets containing the history of chat."},
+        metadata={
+            "help": "The name of the column in the datasets containing the history of chat."
+        },
     )
     train_file: Optional[str] = field(
-        default=None, metadata={"help": "The input training data file (a jsonlines or csv file)."}
+        default=None,
+        metadata={"help": "The input training data file (a jsonlines or csv file)."},
     )
     validation_file: Optional[str] = field(
         default=None,
@@ -88,7 +90,8 @@ class DataTrainingArguments:
         },
     )
     overwrite_cache: bool = field(
-        default=False, metadata={"help": "Overwrite the cached training and evaluation sets"}
+        default=False,
+        metadata={"help": "Overwrite the cached training and evaluation sets"},
     )
     preprocessing_num_workers: Optional[int] = field(
         default=None,

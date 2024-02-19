@@ -28,6 +28,7 @@ logger = logging.get_logger(__name__)
 WEIGHTS_NAME = "pytorch_model.bin"
 TRAINING_ARGS_NAME = "training_args.bin"
 
+
 class PrefixTrainer(Trainer):
     def __init__(self, *args, save_changed=False, **kwargs):
         self.save_changed = save_changed
@@ -44,9 +45,13 @@ class PrefixTrainer(Trainer):
             if isinstance(unwrap_model(self.model), PreTrainedModel):
                 if state_dict is None:
                     state_dict = self.model.state_dict()
-                unwrap_model(self.model).save_pretrained(output_dir, state_dict=state_dict)
+                unwrap_model(self.model).save_pretrained(
+                    output_dir, state_dict=state_dict
+                )
             else:
-                logger.info("Trainer.model is not a `PreTrainedModel`, only saving its state dict.")
+                logger.info(
+                    "Trainer.model is not a `PreTrainedModel`, only saving its state dict."
+                )
                 if state_dict is None:
                     state_dict = self.model.state_dict()
                 torch.save(state_dict, os.path.join(output_dir, WEIGHTS_NAME))
@@ -68,6 +73,7 @@ class PrefixTrainer(Trainer):
         # Good practice: save your training arguments together with the trained model
         torch.save(self.args, os.path.join(output_dir, TRAINING_ARGS_NAME))
 
+
 class LoRATrainer(Trainer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -79,7 +85,9 @@ class LoRATrainer(Trainer):
 
         model_to_save = unwrap_model(self.model)
         saved_params = {
-            k: v.to("cuda") for k, v in model_to_save.named_parameters() if v.requires_grad
+            k: v.to("cuda")
+            for k, v in model_to_save.named_parameters()
+            if v.requires_grad
         }
         torch.save(saved_params, os.path.join(output_dir, WEIGHTS_NAME))
 
