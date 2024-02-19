@@ -1,4 +1,4 @@
-Todo list
+# Todo list
 
 DONE 看02Prompt
 
@@ -12,6 +12,4 @@ DONE 看RAG讲座
 
 DONE 看11、12模型微调，给微调项目
 
-看微调讲座
-
-看项目拆解课
+DONE 看微调讲座
