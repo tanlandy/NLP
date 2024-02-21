@@ -1,16 +1,17 @@
 # 图解
 
-
-
-#  李沐老师作文精读
+# 李沐老师作文精读
 
 ## Prerequisite
+
 MLP
 Residual connection: 残差连接，见ResNet论文
 
 ## Experiment
+
 ### 编码器
-Layer Normalization: 层归一化，适用于变长序列 
+
+Layer Normalization: 层归一化，适用于变长序列
 对每个样本做归一化，使得每个样本的均值为0，方差为1
 二维时候：可以理解成把数据转置，然后算batch norm，然后再转置回去
 三维：
@@ -33,6 +34,8 @@ Why layer norm?
 - layer norm：每个样本自己算均值和方差，同时不用存一个全局的
 
 ### 解码器
+
 自回归：当前的输入是之前的输出
 
 看到36min，去补充线性代数的知识
+![逐层介绍](61421708502179_.pic.jpg)
