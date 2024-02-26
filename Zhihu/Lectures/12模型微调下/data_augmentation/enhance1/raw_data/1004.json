@@ -1,0 +1,20 @@
+[
+    {
+        "role": "user",
+        "content": "好的，请问这家酒店是豪华型酒店吗？"
+    },
+    {
+        "role": "search",
+        "arguments": {
+            "type": "豪华型"
+        }
+    },
+    {
+        "role": "return",
+        "records": []
+    },
+    {
+        "role": "assistant",
+        "content": "不是的，这家酒店是经济型的。"
+    }
+]
