@@ -16,3 +16,5 @@ PyTorch/data/MNIST/raw/train-labels-idx1-ubyte
 .env
 .conda
 .idea
+.gitignore
+.DS_Store
