@@ -14,3 +14,5 @@ PyTorch/data/MNIST/raw/t10k-labels-idx1-ubyte
 PyTorch/data/MNIST/raw/train-images-idx3-ubyte
 PyTorch/data/MNIST/raw/train-labels-idx1-ubyte
 .env
+.conda
+.idea
