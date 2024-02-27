@@ -1,5 +1,6 @@
 # 加载环境变量
 from dotenv import load_dotenv, find_dotenv
+
 _ = load_dotenv(find_dotenv())
 
 from AutoAgent.AutoGPT import AutoGPT
@@ -28,16 +29,14 @@ def main():
     llm = ChatOpenAI(
         model="gpt-4-1106-preview",
         temperature=0,
-        model_kwargs={
-            "seed": 42
-        },
+        model_kwargs={"seed": 42},
     )
 
     # 存储长时记忆的向量数据库
-    db = Chroma.from_documents([Document(page_content="")], OpenAIEmbeddings(model="text-embedding-ada-002"))
-    retriever = db.as_retriever(
-        search_kwargs={"k": 1}
+    db = Chroma.from_documents(
+        [Document(page_content="")], OpenAIEmbeddings(model="text-embedding-ada-002")
     )
+    retriever = db.as_retriever(search_kwargs={"k": 1})
 
     # 自定义工具集
     tools = [
@@ -50,8 +49,8 @@ def main():
         ExcelAnalyser(
             prompts_path="./prompts/tools",
             prompt_file="excel_analyser.json",
-            verbose=True
-        ).as_tool()
+            verbose=True,
+        ).as_tool(),
     ]
 
     # 定义智能体
@@ -63,7 +62,7 @@ def main():
         main_prompt_file="main.json",
         final_prompt_file="final_step.json",
         max_thought_steps=20,
-        memery_retriever=retriever
+        memery_retriever=retriever,
     )
 
     # 运行智能体
