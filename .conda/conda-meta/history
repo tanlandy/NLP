@@ -1,0 +1,19 @@
+==> 2024-02-26 19:06:45 <==
+# cmd: /Users/lin/anaconda3/lib/python3.11/site-packages/conda/__main__.py create --yes --prefix .conda python=3.11
+# conda version: 23.11.0
++defaults/noarch::tzdata-2024a-h04d1e81_0
++defaults/osx-arm64::bzip2-1.0.8-h620ffc9_4
++defaults/osx-arm64::ca-certificates-2023.12.12-hca03da5_0
++defaults/osx-arm64::libffi-3.4.4-hca03da5_0
++defaults/osx-arm64::ncurses-6.4-h313beb8_0
++defaults/osx-arm64::openssl-3.0.13-h1a28f6b_0
++defaults/osx-arm64::pip-23.3.1-py311hca03da5_0
++defaults/osx-arm64::python-3.11.7-hb885b13_0
++defaults/osx-arm64::readline-8.2-h1a28f6b_0
++defaults/osx-arm64::setuptools-68.2.2-py311hca03da5_0
++defaults/osx-arm64::sqlite-3.41.2-h80987f9_0
++defaults/osx-arm64::tk-8.6.12-hb8d0fd4_0
++defaults/osx-arm64::wheel-0.41.2-py311hca03da5_0
++defaults/osx-arm64::xz-5.4.5-h80987f9_0
++defaults/osx-arm64::zlib-1.2.13-h5a0b063_0
+# update specs: ['python=3.11']

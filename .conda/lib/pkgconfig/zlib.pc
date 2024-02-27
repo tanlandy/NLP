@@ -1,0 +1,13 @@
+prefix=/Users/lin/Documents/GitHub/NLP/.conda
+exec_prefix=/Users/lin/Documents/GitHub/NLP/.conda
+libdir=/Users/lin/Documents/GitHub/NLP/.conda/lib
+sharedlibdir=/Users/lin/Documents/GitHub/NLP/.conda/lib
+includedir=/Users/lin/Documents/GitHub/NLP/.conda/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
