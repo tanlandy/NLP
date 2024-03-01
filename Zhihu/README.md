@@ -4,7 +4,7 @@ DONE 看02Prompt
 
 DONE 看03从AI编程认知AI
 
-DONE 看05RAG 和 Embeddings，给RAG项目
+DONE 第五期看05RAG 和 Embeddings，给RAG项目
 
 DONE 看07LangChain，
 

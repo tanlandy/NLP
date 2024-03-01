@@ -47,9 +47,9 @@ RAG（Retrieval Augmented Generation）顾名思义，通过**检索**的方法�
 搭建过程：
 
 1. 文档加载，并按一定条件**切割**成片段
-2. 将切割的文本片段灌入**检索引擎**
+2. 将切割的文本片段（to_keywords）灌入**检索引擎**
 3. 封装**检索接口**
-4. 构建**调用流程**：Query -> 检索 -> Prompt -> LLM -> 回复
+4. 构建**调用流程**：Query -> 检索（to_keywords） -> Prompt -> LLM -> 回复
 
 ### 3.1 文档的加载与切割
 
@@ -377,7 +377,8 @@ for vec in doc_vecs:
 
 ### 4.3、向量数据库
 
-向量数据库，是专门为向量检索设计的中间件。
+向量数据库，是专门为向量检索设计的中间件，核心是提供向量快速检索的能力。
+向量数据库本身不产生向量。
 这样不用每次都去用向量模型来产生向量，而是将向量存储在数据库中，直接检索。
 
 ```python
@@ -432,6 +433,12 @@ for para in results['documents'][0]:
 
 ```
 
+**澄清几个关键概念：**
+
+- 向量数据库的意义是快速的检索；
+- 向量数据库本身不生成向量，向量是由 Embedding 模型产生的；
+- 向量数据库与传统的关系型数据库是互补的，不是替代关系，在实际应用中根据实际需求经常同时使用。
+
 ### 4.3.1、向量数据库服务
 
 上例将向量数据库运行在内存里，实际生产中，需要将向量数据库运行在一个独立的服务中。
@@ -463,6 +470,7 @@ chroma_client = chromadb.HttpClient(host='localhost', port=8000)
 - ElasticSearch 也支持向量检索 <https://www.elastic.co/enterprise-search/vector-search>
 
 老师推荐：
+前四个是最常用的
 数据没有私有化的强需求，可以用非开源的Pinecone，非常省事
 如果追求功能的可控和性能的极致调优，推荐Milvus：1. 开源 2. 功能完备 3. 有优化过的云原生服务
 考量性能，不推荐RediSearch和ElasticSearch
@@ -569,7 +577,7 @@ new_vector_db = MyVectorDBConnector(
     "demo_ernie",
     embedding_fn=get_embeddings_bge
 )
-# 向向量数据库中添加文档
+# 向向量数据库中添加文档（换了Embedding模型之后，向量变化了，需要重新灌入数据库）
 new_vector_db.add_documents(paragraphs)
 
 # 创建一个RAG机器人
@@ -578,6 +586,7 @@ new_bot = RAG_Bot(
     llm_api=get_completion_ernie
 )
 
+# 这个国产Embedding模型，不能多语言检索，因此只能用与灌库时文档相同的语言（英文）进行提问
 user_query = "how many parameters does llama 2 have?"
 
 response = new_bot.chat(user_query)
@@ -585,6 +594,21 @@ response = new_bot.chat(user_query)
 print(response)
 
 ```
+
+### 4.6、OpenAI 新发布的两个 Embedding 模型
+
+2024年1月25日，OpenAI 新发布了两个 Embedding 模型
+
+- text-embedding-3-large
+- text-embedding-3-small
+
+其最大特点是，支持自定义的缩短向量维度，从而在几乎不影响最终效果的情况下降低向量检索与相似度计算的复杂度。
+
+通俗的说：**越大越准、越小越快。** 官方公布的评测结果:
+
+![mteb](mteb.png)
+
+注：[MTEB](https://huggingface.co/blog/mteb) 是一个大规模多任务的 Embedding 模型公开评测集
 
 ## 五、实战 RAG 系统的进阶知识
 
@@ -673,21 +697,58 @@ print(response)
 
 代码见[rank.py](./rank.py)
 
+### 5.3、混合检索（Hybrid Search）（选）
+
+在**实际生产**中，传统的关键字检索（稀疏表示）与向量检索（稠密表示）各有优劣。
+
+举个具体例子，比如文档中包含很长的专有名词，关键字检索往往更精准而向量检索容易引入概念混淆。
+
+专业名次之间就差一两个字，模型训练的时候对于这个专业名词见的就不足，而且长得又比较像，所以如果完全依赖向量模型，就可能不能满足需要。
+
+```python
+
+# 背景说明：在医学中“小细胞肺癌”和“非小细胞肺癌”是两种不同的癌症
+
+query = "非小细胞肺癌的患者"
+
+documents = [
+    "李某患有肺癌，癌细胞已转移",
+    "刘某肺癌I期",
+    "张某经诊断为非小细胞肺癌III期",
+    "小细胞肺癌是肺癌的一种"
+]
+
+query_vec = get_embeddings([query])[0]
+doc_vecs = get_embeddings(documents)
+
+print("Cosine distance:")
+for vec in doc_vecs:
+    print(cos_sim(query_vec, vec))
+
+```
+
+所以，有时候我们需要结合不同的检索算法，来达到比单一检索算法更优的效果。这就是**混合检索**。
+
+混合检索的核心是，综合文档 $d$ 在不同检索算法下的排序名次（rank），为其生成最终排序。
+
+一个最常用的算法叫 **Reciprocal Rank Fusion（RRF）**
+
+$rrf(d)=\sum_{a\in A}\frac{1}{k+rank_a(d)}$
+
+其中 $A$ 表示所有使用的检索算法的集合，$rank_a(d)$ 表示使用算法 $a$ 检索时，文档 $d$ 的排序，$k$ 是个常数。
+
+很多向量数据库都支持混合检索，比如 [Weaviate](https://weaviate.io/blog/hybrid-search-explained)、[Pinecone](https://www.pinecone.io/learn/hybrid-search-intro/) 等。也可以根据上述原理自己实现。
+
+代码见[RRF](./RRF.py)
+
 ## 六、向量模型的本地部署
 
 代码见[bge.py](./bge.py)
 
-<div class="alert alert-info">
-<b>扩展阅读：https://github.com/FlagOpen/FlagEmbedding</b>
-</div>
+扩展阅读bge模型：<https://github.com/FlagOpen/FlagEmbedding>
 
-<div class="alert alert-success">
-<b>划重点：</b>
-    <ol>
-        <li>不是每个 Embedding 模型都对余弦距离和欧氏距离同时有效</li>
-        <li>哪种相似度计算有效要阅读模型的说明（通常都支持余弦距离计算）</li>
-    </ol>
-</div>
+- 不是每个 Embedding 模型都对余弦距离和欧氏距离同时有效
+- 哪种相似度计算有效要阅读模型的说明（通常都支持余弦距离计算）
 
 ## OpenAI Assistants API 内置了这个能力
 
@@ -784,6 +845,18 @@ Retrieval currently optimizes for quality by adding all relevant content to the 
 2. 测试检索效果：问题检索回来的文本片段是否包含答案
 3. 测试大模型能力：给定问题和包含答案文本片段的前提下，大模型能不能正确回答问题
 
+## 答疑
+
+- 如何判断什么时候走RAG，什么时候走正常的普通回答：
+
+1. 利用Prompt，使用大模型来判断
+2. 给RAG返回结果设定一个ranking阈值，超过则rag，否则就正常普通回答
+
+- 问答对数据的RAG处理方式：
+
+1. 只存问句的向量，返回问答对的文本，检索的时候也只检索问题
+2. 问答对都存
+
 ## 作业
 
 做个自己的 ChatPDF。需求：
@@ -791,8 +864,6 @@ Retrieval currently optimizes for quality by adding all relevant content to the 
 1. 从本地加载 PDF 文件，基于 PDF 的内容对话
 2. 可以无前端，只要能在命令行运行就行
 3. 其它随意发挥
-
-看到117min，开始答疑
 
 # 自己补充内容
 
@@ -804,3 +875,11 @@ Retrieval currently optimizes for quality by adding all relevant content to the 
 2. Embedding Dimenssions：看业务场景的语义是否特别丰富，并不是越大越好。如果比较精比较专，选择小的可能效果更好
 3. Model Size：取决于设备的GPU情况
 4. 做个demo，可视化看一下效果作为参考
+
+## 项目介绍
+
+本地化部署RAG，向量数据库Milvus，使用多种Embedding模型和大模型，灌库，（检索后排序），混合检索
+
+## 课后
+
+看一下模型训练那节课的教学例子，解决同时检索结构化和非结构化的方式

@@ -1,6 +1,9 @@
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer('BAAI/bge-large-zh-v1.5')
+model_name = "BAAI/bge-large-zh-v1.5"  # 中文
+# model_name = 'moka-ai/m3e-base' #中英双语，但效果一般
+
+model = SentenceTransformer(model_name)
 
 query = "国际争端"
 
@@ -13,19 +16,17 @@ documents = [
 ]
 
 query_vec = model.encode(query, normalize_embeddings=True)
-doc_vecs = [
-    model.encode(doc, normalize_embeddings=True)
-    for doc in documents
-
-]
+doc_vecs = [model.encode(doc, normalize_embeddings=True) for doc in documents]
 
 import numpy as np
 from numpy import dot
 from numpy.linalg import norm
 
+
 def cos_sim(a, b):
-    '''余弦距离 -- 越大越相似'''
-    return dot(a, b)/(norm(a)*norm(b))
+    """余弦距离 -- 越大越相似"""
+    return dot(a, b) / (norm(a) * norm(b))
+
 
 print("Cosine distance:")  # 越大越相似
 print(cos_sim(query_vec, query_vec))
