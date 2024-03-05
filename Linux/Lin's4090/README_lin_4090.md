@@ -1,55 +1,33 @@
-# 模型数据集下载
+# README
 
-[source参考来源](https://zhuanlan.zhihu.com/p/663712983)
+## 服务器简介
 
-## hfd
+服务器地址
+192.168.10.201
 
-[Huggingface镜像站](https://hf-mirror.com/)
+账号
+root
 
-参考页面的方法三，使用hfd下载模型和数据集
+密码
+123123
 
-### 下载hfd
+## 目录介绍
 
-```shell
-wget https://hf-mirror.com/hfd/hfd.sh
-chmod a+x hfd.sh
-```
+项目文件
 
-### 设置环境变量
+/opt/Projects
 
-Linux
+已下载的模型文件路径
 
-```shell
-export HF_ENDPOINT=https://hf-mirror.com
-```
+/opt/models
 
-Windows Powershell
+已下载的数据集文件路径
 
-```shell
-$env:HF_ENDPOINT = "https://hf-mirror.com"
-```
+/opt/models/datasets
 
-### 切换到要存储的本地文件夹
+## 加载本地模型及数据集方式
 
-```shell
-cd /opt/models
-```
-
-### 下载模型
-
-```shell
-./hfd.sh google/gemma-7b --hf_username linlinlin --hf_token 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 --tool aria2c -x 4 
-```
-
-### 下载数据集
-
-```shell
-./hfd.sh datasets/wikitext --repo-type dataset --tool aria2c -x 4
-```
-
-# 使用已下载到本地的模型/数据集
-
-## 模型
+### 模型
 
 ```python
 import os
@@ -69,7 +47,7 @@ model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, local_files_only=True)
 
 ```
 
-## 数据集
+### 数据集
 
 ```python
 import os
