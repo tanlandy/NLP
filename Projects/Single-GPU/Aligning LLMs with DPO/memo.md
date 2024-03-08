@@ -4,6 +4,14 @@
 
 [Slides](https://docs.google.com/presentation/d/1S8ao40-CdclRU0D2D9FdyN5x8fZL1Iv5/edit?usp=sharing&ouid=100693752517995714318&rtpof=true&sd=true)
 
+[SFT-a](https://colab.research.google.com/drive/1WNSVtM82oknmzL1QrJlNu--yNaWbp6o9?usp=sharing)
+
+[SFT-b](https://github.com/NielsRogge/Transformers-Tutorials/blob/master/Mistral/Supervised_fine_tuning_(SFT)_of_an_LLM_using_Hugging_Face_tooling.ipynb)
+
+[SFT-Huggingface](https://huggingface.co/docs/trl/sft_trainer)
+
+[DPO](https://colab.research.google.com/drive/1mWiOFBy3zY6OdINEvHN9EPoQ_VIvfFKw?usp=sharing)
+
 # SFT(InstructGPT)
 
 ## Why Align
@@ -31,6 +39,8 @@ No, adding pineapple as a topping on pizza is not a criminal act. It’s a matte
 ### Instruct
 
 datasets that are good for SFT to train a base model into a chat model
+
+[DatasetsForSFT](https://huggingface.co/collections/HuggingFaceH4/awesome-sft-datasets-65788b571bf8e371c4e4241a)
 
 OpenHermes-2.5
 ultrachat
