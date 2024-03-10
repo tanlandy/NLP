@@ -22,11 +22,20 @@ DONE 看微调讲座
 
 # 项目相关
 
+## 项目零
+
+简介：DPO对齐微调，使其更符合
+
 ## 项目一
 
 简介：LLaMa2/Gemma微调
 
 详细内容：
+
+在消费级显卡使用UltraChat数据库（或其他的）Supervised fine tuning(SFT)微调Gemma-2b（或其他的）模型，将其微调成为InstructGPT模型，实现对话功能
+
+todo
+多机多卡尝试操作训练
 
 突出要点：Fine-tune
 
