@@ -1,5 +1,5 @@
-SGD: 
-Residual: 
+SGD:
+Residual:
+
 - Definition
 - Usage
-
