@@ -1,6 +1,6 @@
 # NER
 
-[Resource](https://allenwind.github.io/blog/13588/)
+[Source](https://allenwind.github.io/blog/13588/)
 
 包括思路分解、标签集说明、评估指标、编码器、解码方式等等。
 

@@ -1,6 +1,6 @@
 # 正则化Regularization
 
-## Resources
+## Sources
 
 [知乎详解](https://zhuanlan.zhihu.com/p/137073968)
 

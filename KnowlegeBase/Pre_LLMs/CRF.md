@@ -1,6 +1,6 @@
 # CRF
 
-[Resource](https://allenwind.github.io/blog/13527/)
+[Source](https://allenwind.github.io/blog/13527/)
 
 [HHM, MEMM, CRF](https://allenwind.github.io/blog/13551/)
 

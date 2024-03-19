@@ -1,6 +1,6 @@
 # Turbocharge Your RAG Applications with Powerful RAG Analytics
 
-[Resource](https://www.youtube.com/live/njN_Wu8dLfE?si=0UV3728jpHwklpVA)
+[Source](https://www.youtube.com/live/njN_Wu8dLfE?si=0UV3728jpHwklpVA)
 
 # Pitfuls
 
