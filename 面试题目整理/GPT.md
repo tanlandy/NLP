@@ -1,3 +1,11 @@
+# GPT
+
+## Useful links
+
+[面试汇总](https://zhuanlan.zhihu.com/p/643560888)
+
+## Questions
+
 1. 为什么现在的LLM都是Decoder Only的架构？
 
 首先简述几种主要的架构：
@@ -11,6 +19,7 @@
 而Encoder-Decoder架构的模型用seq2seq的方式来做预训练，可以直接用于生成任务，并且泛化性能也不错。
 
 最后对比Decoder Only和Encoder-Decoder架构：
+
 1. 架构简单，就一个Decoder，减少了模型的复杂性，有助于更有效的学习和处理大量数据
 2. Decoder Only架构的模型从经验来看泛化性能更好，泛化性能更好的原因是
     - Decoder Only架构的模型的预训练任务是next token prediction，这个任务更接近生成任务，所以预训练的模型更适合做生成任务
@@ -19,4 +28,3 @@
 4. 路径依赖
     - OPENAI做出来了，探索出了行之有效的训练方法和scaling law，有先发优势
 5. 对于GLM等一些比较另类的模型结构，虽然也到了几十几百B的规模，但是还没有特别系统的实验比较说明Decoder Only架构一定最好
-
