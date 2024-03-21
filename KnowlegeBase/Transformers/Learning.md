@@ -41,3 +41,13 @@ Token Embeddings就是一个词表，这个词表中有50257个词汇
 ## GPT3
 
 source: [How GPT3 Works - Easily Explained with Animations](https://youtu.be/MQnJZuBGmSQ?si=7uuo666v9yHQYj6w)
+
+## KV-cache
+
+[Source](https://r4j4n.github.io/blogs/posts/kv/)
+
+将先前计算得到的键（K）和值（V）向量存储起来，模型只需要为新加入的序列部分计算QK值，并与缓存中的键值进行组合，从而大幅度减少计算量。
+
+### 效果
+
+更高效处理长序列数据，大幅减少计算量，显著减少延迟。
