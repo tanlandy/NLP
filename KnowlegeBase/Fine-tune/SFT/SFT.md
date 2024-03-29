@@ -15,3 +15,7 @@
 ## 推理
 
 [Source](https://www.baseten.co/blog/llm-transformer-inference-guide/#3500664-batching-memory-bound-processes-on-a-gpu)
+
+## 优秀读物
+
+[GPU-memory](https://medium.com/@maxshapp/understanding-and-estimating-gpu-memory-demands-for-training-llms-in-practise-c5ef20a4baff)
