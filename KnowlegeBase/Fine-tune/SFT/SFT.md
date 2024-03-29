@@ -11,3 +11,7 @@
 ## DeepSpeed
 
 [Source](https://huggingface.co/docs/transformers/v4.39.2/deepspeed#deepspeed-features)
+
+## 推理
+
+[Source](https://www.baseten.co/blog/llm-transformer-inference-guide/#3500664-batching-memory-bound-processes-on-a-gpu)
